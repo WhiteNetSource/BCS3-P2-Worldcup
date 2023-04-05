@@ -4,6 +4,11 @@ import AnimalCard from "../components/AnimalCard";
 
 const Worldcup = () => {
   const [shuffleAnimal, setShuffleAnimal] = useState();
+  const [choice, setChoice] = useState(0);
+
+  const onClickChoice = () => {
+    setChoice(choice + 2);
+  };
 
   useEffect(() => {
     let shuffledAnimalData = animalData.sort(() => {
@@ -18,9 +23,17 @@ const Worldcup = () => {
     <div className="bg-pink-200 min-h-screen flex justify-center items-center">
       {shuffleAnimal && (
         <>
-          <AnimalCard image={shuffleAnimal[0]} index={0} />
+          <AnimalCard
+            image={shuffleAnimal[choice]}
+            choice={choice}
+            onClickChoice={onClickChoice}
+          />
           <div className="text-2xl mx-8 font-bold">VS</div>
-          <AnimalCard image={shuffleAnimal[1]} index={1} />
+          <AnimalCard
+            image={shuffleAnimal[choice + 1]}
+            choice={choice + 1}
+            onClickChoice={onClickChoice}
+          />
         </>
       )}
     </div>

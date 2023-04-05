@@ -1,4 +1,4 @@
-const AnimalCard = ({ image, index }) => {
+const AnimalCard = ({ image, choice, onClickChoice }) => {
   return (
     <div className="flex flex-col justify-center items-center">
       <img
@@ -9,8 +9,9 @@ const AnimalCard = ({ image, index }) => {
       <div className="text-2xl mt-4 font-bold">{image}💕💕💕</div>
       <button
         className={`text-2xl mt-4 px-4 py-2 rounded-lg ${
-          index % 2 === 0 ? "bg-pink-400" : "bg-violet-400"
+          choice % 2 === 0 ? "bg-pink-400" : "bg-violet-400"
         }`}
+        onClick={onClickChoice}
       >
         선택
       </button>
